@@ -79,12 +79,12 @@ bool TicTacToe::isFinished()
 
 int TicTacToe::getCurrPlayer()
 {
-	return currPlayer;
+	return currPlayer+1;
 }
 
 int TicTacToe::getWinner()
 {
-	return winner;
+	return winner+1;
 }
 
 string TicTacToe::getBoardState()
