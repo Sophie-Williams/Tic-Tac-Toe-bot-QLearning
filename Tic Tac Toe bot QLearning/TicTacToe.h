@@ -20,8 +20,8 @@ public:
 	void printBoard();
 
 private:
-	char grid[3][3];
-	char sign[2];
-	int currPlayer;
-	int winner;
+	char mGrid[3][3];
+	char mSign[2];
+	int mCurrPlayer;
+	int mWinner;
 };
