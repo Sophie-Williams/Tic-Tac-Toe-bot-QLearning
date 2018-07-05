@@ -65,8 +65,6 @@ int main()
 		{
 			bot.addReward(-1);
 		}
-		cout << "updating" << endl;
 		bot.update();
-		cout << "updated" << endl;
 	}
 }
