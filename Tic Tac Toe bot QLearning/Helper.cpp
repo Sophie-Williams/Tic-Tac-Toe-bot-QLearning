@@ -4,7 +4,7 @@
 
 bool Helper::validMove(string state, int move)
 {
-	if (state[move] != 'X'&&state[move] != 'O')
+	if (state[move]>='1'&&state[move]<='9')
 	{
 		return true;
 	}

@@ -45,7 +45,7 @@ int QLearning::getAction(string state)
 		}
 	}
 
-	mStates.push_back(currState);
+	mStates.push_back(state);
 	mActions.push_back(pos);
 
 	return pos;
@@ -64,16 +64,19 @@ void QLearning::update()
 
 	for (int i = 1; i < mStates.size(); i++)
 	{
-		int currState = mStates[i];
+		int currState =mStateID[mStates[i]];
 		int currAction = mActions[i];
-		int resultState = mStates[i - 1];
+		int resultState = mStateID[mStates[i - 1]];
 		int reward = mRewards[i - 1];
 
 		double resultReward = -1000;
 
 		for (int j = 0; j < MAX_ACTION; j++)
 		{
-			resultReward = fmax(resultReward, mQValue[resultState][j]);
+			if (Helper::validMove(mStates[i-1], j))
+			{
+				resultReward = fmax(resultReward, mQValue[resultState][j]);
+			}
 		}
 
 		mQValue[currState][currAction] = (1.0 - mLearningRate) * (mQValue[currState][currAction]) + mLearningRate * (reward + mDiscount * resultReward);

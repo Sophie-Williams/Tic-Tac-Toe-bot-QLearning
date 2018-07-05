@@ -33,7 +33,7 @@ bool TicTacToe::move(int pos)
 	pos--;
 	int row = pos / 3;
 	int col = pos % 3;
-	if (!isFinished() && row >= 0 && row<3 && col >= 0 && col<3)
+	if (!isFinished() && row >= 0 && row<3 && col >= 0 && col<3 && Helper::validMove(getBoardState(), pos))
 	{
 		mGrid[row][col] = mSign[mCurrPlayer++];
 		mCurrPlayer %= 2;
@@ -74,7 +74,15 @@ bool TicTacToe::isFinished()
 		}
 	}
 
-	return false;
+	for (int i = 0; i < 9; i++)
+	{
+		if (Helper::validMove(getBoardState(), i))
+		{
+			return false;
+		}
+	}
+
+	return true;
 }
 
 int TicTacToe::getCurrPlayer()

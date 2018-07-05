@@ -1,5 +1,6 @@
 #pragma once
 
+#include <iostream>
 #include <string>
 #include <vector>
 #include <map>
@@ -26,7 +27,7 @@ private:
 	double mLearningRate, mDiscount;
 	double mQValue[MAX_STATE][MAX_ACTION];
 	map<string, int> mStateID;
-	vector<int> mStates;
+	vector<string> mStates;
 	vector<int> mActions;
 	vector<int> mRewards;
 };

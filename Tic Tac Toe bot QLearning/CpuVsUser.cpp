@@ -22,7 +22,6 @@ int main()
 		{
 			if (game.getCurrPlayer() == 2)
 			{
-				cout << "here" << endl;
 				pos = bot.getAction(game.getBoardState());
 				game.move(pos+1);
 				bot.addReward(0);
@@ -56,11 +55,11 @@ int main()
 		bot.getAction(game.getBoardState());
 		if(game.getWinner() == 2)
 		{
-			bot.addReward(3);
+			bot.addReward(10);
 		}
 		else if (game.getWinner() == 1)
 		{
-			bot.addReward(-3);
+			bot.addReward(-10);
 		}
 		else
 		{

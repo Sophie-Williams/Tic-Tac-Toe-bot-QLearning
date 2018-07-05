@@ -3,6 +3,8 @@
 #include <iostream>
 #include <string>
 
+#include "Helper.h"
+
 using namespace std;
 
 class TicTacToe
