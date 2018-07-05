@@ -62,7 +62,7 @@ void QLearning::update()
 	reverse(mActions.begin(), mActions.end());
 	reverse(mRewards.begin(), mRewards.end());
 
-	for (int i = 0; i < mStates.size(); i++)
+	for (int i = 1; i < mStates.size(); i++)
 	{
 		int currState = mStates[i];
 		int currAction = mActions[i];
