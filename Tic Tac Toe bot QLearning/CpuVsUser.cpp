@@ -5,7 +5,7 @@
 
 using namespace std;
 
-TicTacToe game;
+/*TicTacToe game;
 QLearning bot(.5, .8);
 
 int main()
@@ -67,4 +67,4 @@ int main()
 		}
 		bot.update();
 	}
-}
+}*/
