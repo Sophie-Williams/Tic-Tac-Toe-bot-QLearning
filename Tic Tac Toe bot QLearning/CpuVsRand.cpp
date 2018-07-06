@@ -6,7 +6,7 @@
 
 using namespace std;
 
-TicTacToe game;
+/*TicTacToe game;
 QLearning QBot(.5, .8);
 Random RBot;
 
@@ -62,4 +62,4 @@ int main()
 	}
 	cin.ignore();
 	cin.ignore();
-}
+}*/

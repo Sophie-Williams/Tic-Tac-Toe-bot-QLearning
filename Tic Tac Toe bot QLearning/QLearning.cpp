@@ -11,6 +11,7 @@ QLearning::QLearning(double learningRate, double discount)
 	mStates.clear();
 	mActions.clear();
 	mRewards.clear();
+
 	for (int i = 0; i < MAX_STATE; i++)
 	{
 		for (int j = 0; j < MAX_ACTION; j++)
@@ -85,4 +86,50 @@ void QLearning::update()
 	mStates.clear();
 	mActions.clear();
 	mRewards.clear();
+}
+
+void QLearning::readQValue(string path)
+{
+	ifstream file(path);
+	string state;
+	mStateID.clear();
+	mStateCounter = 0;
+
+	for (int i = 0; i < MAX_STATE; i++)
+	{
+		for (int j = 0; j < MAX_ACTION; j++)
+		{
+			mQValue[i][j] = 0.0;
+		}
+	}
+
+	while (file >> state)
+	{
+		mStateID[state] = ++mStateCounter;
+
+		for (int i = 0; i < MAX_ACTION; i++)
+		{
+			double value;
+			file >> value;
+			mQValue[mStateCounter][i] = value;
+		}
+	}
+}
+
+void QLearning::saveQValue(string path)
+{
+	ofstream file(path);
+	map<string, int>::iterator it;
+
+	for (it = mStateID.begin(); it != mStateID.end(); it++)
+	{
+		file << it->first;
+		int currState = it->second;
+
+		for (int i = 0; i < MAX_ACTION; i++)
+		{
+			file << " " << mQValue[currState][i];
+		}
+		file << endl;
+	}
 }

@@ -5,11 +5,14 @@
 
 using namespace std;
 
-/*TicTacToe game;
+TicTacToe game;
 QLearning bot(.5, .8);
+
+string path = "File\\Text\\QValue.txt";
 
 int main()
 {
+	bot.readQValue(path);
 
 	int n, pos;
 	cout << "Enter no of trial: ";
@@ -66,5 +69,6 @@ int main()
 			bot.addReward(-1);
 		}
 		bot.update();
+		bot.saveQValue(path);
 	}
-}*/
+}

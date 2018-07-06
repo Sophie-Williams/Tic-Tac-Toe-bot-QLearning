@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <fstream>
 
 #include "Helper.h"
 
@@ -21,6 +22,8 @@ public:
 	int getAction(string state);
 	void addReward(int reward);
 	void update();
+	void readQValue(string path);
+	void saveQValue(string path);
 
 private:
 	int mStateCounter;
